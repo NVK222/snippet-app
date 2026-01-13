@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import SnippetCard from "@/components/SnippetCard";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -14,19 +15,7 @@ export default async function Home() {
       <div className="grid grid-cols-1 gap-60 md:grid-cols-2 lg:grid-cols-3">
         {snippets?.length === 0 && <p className="text-muted-foreground">No public snippets :(</p>}
         {snippets?.map((snippet) => (
-          <Card key={snippet.id} className="bg-card hover:bg-accent/50 transition-colors">
-            <CardHeader>
-              <CardTitle>{snippet.title}</CardTitle>
-              <CardDescription className="font-mono text-xs uppercase">
-                {snippet.language}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted overflow-x-auto rounded-md p-4 font-mono text-sm">
-                {snippet.code}
-              </pre>
-            </CardContent>
-          </Card>
+          <SnippetCard key={snippet.id} snippet={snippet} />
         ))}
       </div>
     </main>
