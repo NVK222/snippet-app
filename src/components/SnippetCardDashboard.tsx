@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Snippet } from "@/types/types";
 import { Button } from "./ui/button";
 import { Trash2 } from "lucide-react";
+import { CodeBlock } from "./code-block";
 
 interface SnippetCardDashboardProps {
   snippet: Snippet;
@@ -39,10 +40,8 @@ export default function SnippetCardDashboard({ snippet, deleteAction }: SnippetC
           </Button>
         </form>
       </CardHeader>
-      <CardContent>
-        <pre className="bg-muted mt-4 overflow-x-auto rounded-md p-4 font-mono text-sm">
-          {snippet.code}
-        </pre>
+      <CardContent className="p-0">
+        <CodeBlock code={snippet.code} language={snippet.language} />
       </CardContent>
     </Card>
   );

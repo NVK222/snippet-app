@@ -1,5 +1,6 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Snippet } from "@/types/types";
+import { CodeBlock } from "./code-block";
 
 interface SnippetCardProps {
   snippet: Snippet;
@@ -14,10 +15,8 @@ export default function SnippetCard({ snippet }: SnippetCardProps) {
           {snippet.language}
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <pre className="bg-muted overflow-x-auto rounded-md p-4 font-mono text-sm">
-          {snippet.code}
-        </pre>
+      <CardContent className="p-0">
+        <CodeBlock code={snippet.code} language={snippet.language} />
       </CardContent>
     </Card>
   );
