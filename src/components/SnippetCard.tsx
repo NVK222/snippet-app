@@ -7,7 +7,7 @@ interface SnippetCardProps {
 
 export default function SnippetCard({ snippet }: SnippetCardProps) {
   return (
-    <Card key={snippet.id} className="bg-card hover:bg-accent/50 transition-colors">
+    <Card className="bg-card hover:bg-accent/50 transition-colors">
       <CardHeader>
         <CardTitle>{snippet.title}</CardTitle>
         <CardDescription className="font-mono text-xs uppercase">

@@ -1,5 +1,4 @@
 import { createClient } from "@/utils/supabase/server";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import SnippetCard from "@/components/SnippetCard";
 
 export default async function Home() {
