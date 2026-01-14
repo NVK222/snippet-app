@@ -16,11 +16,17 @@ export default function LoginPage() {
           <form className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="abc@example.com" required />
+              <Input id="email" name="email" type="email" placeholder="" required />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" name="password" type="password" required />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="At least 6 characters"
+                required
+              />
             </div>
             <div className="mt-2 flex flex-col gap-2">
               <Button formAction={login} className="w-full">
