@@ -1,11 +1,14 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Snippet } from "@/types/types";
+import { Button } from "./ui/button";
+import { Trash2 } from "lucide-react";
 
 interface SnippetCardDashboardProps {
   snippet: Snippet;
+  deleteAction: (formData: FormData) => Promise<void>;
 }
 
-export default function SnippetCardDashboard({ snippet }: SnippetCardDashboardProps) {
+export default function SnippetCardDashboard({ snippet, deleteAction }: SnippetCardDashboardProps) {
   return (
     <Card className="bg-card hover:bg-accent/50 transition-colors">
       <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
@@ -24,6 +27,17 @@ export default function SnippetCardDashboard({ snippet }: SnippetCardDashboardPr
         >
           {snippet.is_public ? "Public" : "Private"}
         </div>
+        <form action={deleteAction}>
+          <input type="hidden" name="id" value={snippet.id} />
+          <Button
+            type="submit"
+            variant="ghost"
+            size="icon"
+            className="text-muted-foreground h-8 w-8 hover:text-red-500"
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        </form>
       </CardHeader>
       <CardContent>
         <pre className="bg-muted mt-4 overflow-x-auto rounded-md p-4 font-mono text-sm">

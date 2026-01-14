@@ -2,6 +2,7 @@ import SnippetCardDashboard from "@/components/SnippetCardDashboard";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { deleteSnippet } from "./actions";
 
 export default async function Dashboard() {
   const supabase = await createClient();
@@ -34,7 +35,7 @@ export default async function Dashboard() {
         )}
 
         {snippets?.map((snippet) => (
-          <SnippetCardDashboard key={snippet.id} snippet={snippet} />
+          <SnippetCardDashboard key={snippet.id} snippet={snippet} deleteAction={deleteSnippet} />
         ))}
       </div>
     </main>
