@@ -19,7 +19,7 @@ export type Database = {
           code: string
           created_at: string
           id: string
-          is_public: boolean | null
+          is_public: boolean
           language: string
           title: string
           user_id: string
@@ -28,7 +28,7 @@ export type Database = {
           code: string
           created_at?: string
           id?: string
-          is_public?: boolean | null
+          is_public?: boolean
           language?: string
           title: string
           user_id: string
@@ -37,7 +37,7 @@ export type Database = {
           code?: string
           created_at?: string
           id?: string
-          is_public?: boolean | null
+          is_public?: boolean
           language?: string
           title?: string
           user_id?: string
