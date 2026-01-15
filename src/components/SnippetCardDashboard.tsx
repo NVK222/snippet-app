@@ -1,8 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Snippet } from "@/types/types";
 import { Button } from "./ui/button";
-import { Trash2 } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { CodeBlock } from "./code-block";
+import Link from "next/link";
 
 interface SnippetCardDashboardProps {
   snippet: Snippet;
@@ -28,6 +29,15 @@ export default function SnippetCardDashboard({ snippet, deleteAction }: SnippetC
         >
           {snippet.is_public ? "Public" : "Private"}
         </div>
+        <Link href={`/dashboard/${snippet.id}/edit`}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-muted-foreground h-8 w-8 hover:text-blue-500"
+          >
+            <Pencil className="h-4 w-4" />
+          </Button>
+        </Link>
         <form action={deleteAction}>
           <input type="hidden" name="id" value={snippet.id} />
           <Button
